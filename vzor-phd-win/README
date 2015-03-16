@@ -1,0 +1,33 @@
+Šablona pro sazbu disertaèní práce v LaTeXu
+Vytvoøil Martin Mareš <mj@ucw.cz> roku 2011
+Tento soubor je povoleno libovolnì šíøit, používat a upravovat.
+Pokud máte jakékoliv pøipomínky nebo návrhy na vylepšení, dejte mi prosím vìdìt.
+--------------------------------------------------------------------------------
+
+Šablona existuje ve dvou verzích -- èeské (adresáø cs) a anglické (en).
+
+Obecná fakultní pravidla pro úpravu disertaèních prací najdete v souboru
+phd_uprava.pdf. Tento formát pro LaTeX se jimi øídí a snaží se dùležité vìci
+pøipomínat komentáøi. Pøesto si ale celá pravidla pøeètìte -- napøíklad úprava
+desek práce je popsána pouze tam.
+
+Pokud LaTeX ještì neznáte, na webu naleznete mnoho úvodních textù.
+Mnì se nejvíce osvìdèil http://en.wikibooks.org/wiki/LaTeX. Pár poznámek
+k TeXové sazbì najdete také zde v souboru ukazka.tex.
+
+Základní nastavení sazby naleznete v souboru prace.tex, ten se také
+odkazuje na ostatní soubory s jednotlivými kapitolami práce. Peèlivì
+si hlavní soubor pøeètìte a doplòte všechny chybìjící údaje.
+
+Pokud pracujete na Unixovém systému, mùže se vám hodit ukázkový Makefile --
+staèí spustit program "make" a ten už se postará o pøeložení všech souborù
+TeXem.
+
+Práci je potøeba kompilovat csLaTeXem, ten je ve vìtšinì instalací TeXu
+dostupný v balíèku pro podporu èeštiny a slovenštiny. Pokud csLaTeX nejste
+schopni rozbìhnout, mùžete zkusit místo toho použít klasický LaTeX s balíèkem
+babel (viz zakomentovaná èást na zaèátku souboru babel.tex), ovšem sazba èeských
+písmen bude o nìco ošklivìjší.
+
+Další materiály o psaní disertaèních prací a odborných textù vùbec najdete
+na http://mj.ucw.cz/vyuka/bc/.

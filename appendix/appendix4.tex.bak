@@ -1,0 +1,8 @@
+\chapter{Modeling of short-term mechanism of arterial pressure control in the cardiovascular system: Object-oriented and acausal approach}\label{app:d}
+The paper \cite{Kulhanek2014Modeling} published as
+ 
+\bibentry{Kulhanek2014Modeling}
+
+Available online at \url{http://dx.doi.org/10.1016/j.compbiomed.2014.08.025}
+
+\includepdf[pages={-},pagecommand={\thispagestyle{plain}}]{appendix/LetterToEditorNew2.pdf}

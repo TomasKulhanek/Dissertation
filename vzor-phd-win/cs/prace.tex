@@ -1,0 +1,262 @@
+%%% Hlavní soubor. Zde se definují základní parametry a odkazuje se na ostatní èásti. %%%
+
+%% Verze pro jednostranný tisk:
+% Okraje: levý 40mm, pravý 25mm, horní a dolní 25mm
+% (ale pozor, LaTeX si sám pøidává 1in)
+\documentclass[12pt,a4paper]{report}
+\setlength\textwidth{145mm}
+\setlength\textheight{247mm}
+\setlength\oddsidemargin{15mm}
+\setlength\evensidemargin{15mm}
+\setlength\topmargin{0mm}
+\setlength\headsep{0mm}
+\setlength\headheight{0mm}
+% \openright zaøídí, aby následující text zaèínal na pravé stranì knihy
+\let\openright=\clearpage
+
+%% Pokud tiskneme oboustrannì:
+% \documentclass[12pt,a4paper,twoside,openright]{report}
+% \setlength\textwidth{145mm}
+% \setlength\textheight{247mm}
+% \setlength\oddsidemargin{15mm}
+% \setlength\evensidemargin{0mm}
+% \setlength\topmargin{0mm}
+% \setlength\headsep{0mm}
+% \setlength\headheight{0mm}
+% \let\openright=\cleardoublepage
+
+%% Pokud používáte csLaTeX (doporuèeno):
+\usepackage{czech}
+%% Pokud nikoliv:
+%\usepackage[czech]{babel}
+%\usepackage[T1]{fontenc}
+
+%% Použité kódování znakù: obvykle latin2, cp1250 nebo utf8:
+\usepackage[cp1250]{inputenc}
+
+%% Ostatní balíèky
+\usepackage{graphicx}
+\usepackage{amsthm}
+
+%% Balíèek hyperref, kterým jdou vyrábìt klikací odkazy v PDF,
+%% ale hlavnì ho používáme k uložení metadat do PDF (vèetnì obsahu).
+%% POZOR, nezapomeòte vyplnit jméno práce a autora.
+\usepackage[ps2pdf,unicode]{hyperref}   % Musí být za všemi ostatními balíèky
+\hypersetup{pdftitle=Název práce}
+\hypersetup{pdfauthor=Jméno Pøíjmení}
+
+%%% Drobné úpravy stylu
+
+% Tato makra pøesvìdèují mírnì ošklivým trikem LaTeX, aby hlavièky kapitol
+% sázel pøíèetnìji a nevynechával nad nimi spoustu místa. Smìle ignorujte.
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries \thechapter. #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+\def\@makeschapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+\makeatother
+
+% Toto makro definuje kapitolu, která není oèíslovaná, ale je uvedena v obsahu.
+\def\chapwithtoc#1{
+\chapter*{#1}
+\addcontentsline{toc}{chapter}{#1}
+}
+
+\begin{document}
+
+% Trochu volnìjší nastavení dìlení slov, než je default.
+\lefthyphenmin=2
+\righthyphenmin=2
+
+%%% Titulní strana práce
+
+\pagestyle{empty}
+\begin{center}
+
+\large
+
+Univerzita Karlova v Praze
+
+\medskip
+
+Matematicko-fyzikální fakulta
+
+\vfill
+
+{\bf\Large DISERTAÈNÍ PRÁCE}
+
+\vfill
+
+\centerline{\mbox{\includegraphics[width=60mm]{../img/logo.eps}}}
+
+\vfill
+\vspace{5mm}
+
+{\LARGE Jméno a pøíjmení autora}
+
+\vspace{15mm}
+
+% Název práce pøesnì podle zadání
+{\LARGE\bfseries Název práce}
+
+\vfill
+
+% Název katedry nebo ústavu, kde byla práce oficiálnì zadána
+% (dle Organizaèní struktury MFF UK)
+Název katedry nebo ústavu
+
+\vfill
+
+\begin{tabular}{rl}
+
+Vedoucí disertaèní práce: & Jméno a pøíjmení s~tituly \\
+\noalign{\vspace{2mm}}
+Studijní program: & program \\
+\noalign{\vspace{2mm}}
+Studijní obor: & obor \\
+\end{tabular}
+
+\vfill
+
+% Zde doplòte rok
+Praha ROK
+
+\end{center}
+
+\newpage
+
+%%% Na tomto místì mohou být napsána pøípadná podìkování (vedoucímu práce,
+%%% konzultantovi, tomu, kdo zapùjèil software, literaturu apod.)
+
+\openright
+
+\noindent
+Podìkování.
+
+\newpage
+
+%%% Strana s èestným prohlášením k disertaèní práci
+
+\vglue 0pt plus 1fill
+
+\noindent
+Prohlašuji, že jsem tuto disertaèní práci vypracoval(a) samostatnì a výhradnì
+s~použitím citovaných pramenù, literatury a dalších odborných zdrojù.
+
+\medskip\noindent
+Beru na~vìdomí, že se na moji práci vztahují práva a povinnosti vyplývající
+ze zákona è. 121/2000 Sb., autorského zákona v~platném znìní, zejména skuteènost,
+že Univerzita Karlova v Praze má právo na~uzavøení licenèní smlouvy o~užití této
+práce jako školního díla podle §60 odst. 1 autorského zákona.
+
+\vspace{10mm}
+
+\hbox{\hbox to 0.5\hsize{%
+V ........ dne ............
+\hss}\hbox to 0.5\hsize{%
+Podpis autora
+\hss}}
+
+\vspace{20mm}
+\newpage
+
+%%% Povinná informaèní strana disertaèní práce
+
+\vbox to 0.5\vsize{
+\setlength\parindent{0mm}
+\setlength\parskip{5mm}
+
+Název práce:
+Název práce
+% pøesnì dle zadání
+
+Autor:
+Jméno a pøíjmení autora
+
+Katedra:  % Pøípadnì Ústav:
+Název katedry èi ústavu, kde byla práce oficiálnì zadána
+% dle Organizaèní struktury MFF UK
+
+Vedoucí disertaèní práce:
+Jméno a pøíjmení s tituly, pracovištì
+% dle Organizaèní struktury MFF UK, pøípadnì plný název pracovištì mimo MFF UK
+
+Abstrakt:
+% abstrakt v rozsahu 80-200 slov; nejedná se však o opis zadání disertaèní práce
+
+Klíèová slova:
+% 3 až 5 klíèových slov
+
+\vss}\nobreak\vbox to 0.49\vsize{
+\setlength\parindent{0mm}
+\setlength\parskip{5mm}
+
+Title:
+% pøesný pøeklad názvu práce v angliètinì
+
+Author:
+Jméno a pøíjmení autora
+
+Department:
+Název katedry èi ústavu, kde byla práce oficiálnì zadána
+% dle Organizaèní struktury MFF UK v angliètinì
+
+Supervisor:
+Jméno a pøíjmení s tituly, pracovištì
+% dle Organizaèní struktury MFF UK, pøípadnì plný název pracovištì
+% mimo MFF UK v angliètinì
+
+Abstract:
+% abstrakt v rozsahu 80-200 slov v angliètinì; nejedná se však o pøeklad
+% zadání disertaèní práce
+
+Keywords:
+% 3 až 5 klíèových slov v angliètinì
+
+\vss}
+
+\newpage
+
+%%% Strana s automaticky generovaným obsahem disertaèní práce. U matematických
+%%% prací je pøípustné, aby seznam tabulek a zkratek, existují-li, byl umístìn
+%%% na zaèátku práce, místo na jejím konci.
+
+\openright
+\pagestyle{plain}
+\setcounter{page}{1}
+\tableofcontents
+
+%%% Jednotlivé kapitoly práce jsou pro pøehlednost uloženy v samostatných souborech
+\include{uvod}
+\include{kap1}
+\include{kap2}
+
+% Ukázka použití nìkterých konstrukcí LateXu (odkomentujte, chcete-li)
+% \include{ukazka}
+
+\include{zaver}
+
+%%% Seznam použité literatury
+\include{literatura}
+
+%%% Tabulky v disertaèní práci, existují-li.
+\chapwithtoc{Seznam tabulek}
+
+%%% Použité zkratky v disertaèní práci, existují-li, vèetnì jejich vysvìtlení.
+\chapwithtoc{Seznam použitých zkratek}
+
+%%% Pøílohy k disertaèní práci, existují-li (rùzné dodatky jako výpisy programù,
+%%% diagramy apod.). Každá pøíloha musí být alespoò jednou odkazována z vlastního
+%%% textu práce. Pøílohy se èíslují.
+\chapwithtoc{Pøílohy}
+
+\openright
+\end{document}

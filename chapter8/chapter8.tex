@@ -1,0 +1,84 @@
+\chapter{Conclusion}
+\label{sec:conclusion}
+
+\section{Discussion}
+%Important decision about utilizing distributed computing infrastructure is what benefits it'll bring with respect of the caveats and resources it'll consume including the human capital compared to other existing solution.
+
+%\subsection{Medical imaging}
+%There are several use cases where exchanging or sharing DICOM images are beneficial, next to the second opinion and teleradiology (remote diagnostics), gathering information and expertize in rare diseases, studies in unusual cases or secondary use of clinical imaging data for research, optimizing new processing methods etc. 
+
+%The Globus MEDICUS stores one or more copies of DICOM images within grid infrastructure, and as such, can be used as technology and infrastructure to built data warehouse for DICOM images of specific interest. Another philosophy is to federate files and metadata stored within home institutions, which seems to be preferred solution in hospitals and clinical use which were shown in other medical sharing image projects.
+
+The result presented in section \ref{sec:resultsimages} is an example how a standard format and protocol (DICOM) is utilized to integrate current production system to exchange medical images (MEDIMED) and a grid based solution (Globus MEDICUS) where an underlying technology is hidden for common user. This research was originally motivated by the idea to investigate benefits and show robust grid-based technology against proprietary distributed technology, which may face up to scalability and maintenance issues. Another issue is the philosophy of storing medical images. The presented solution based on the Globus MEDICUS is in general a data warehouse storing one or more copies of DICOM images, in contrast to federated files and metadata stored within home institutions which shares only network infrastructure to interchange the DICOM studies. This seems to be more acceptable by hospitals and by the national and international regulation for clinical and diagnostic use, e.g. The authors of Globus MEDICUS in their further development followed a way of federation of medical images stored within home institutions rather than in a grid infrastructure published by Chervenak et al. \cite{Chervenak2012}. 
+Thus the grid-computing infrastructure for sharing medical images is worth to use in the cases when additional demanding computation e.g. for processing of medical images are needed or for educational, training and knowledge sharing purposes.
+
+%However, the scalability is managed within the current MEDIMED system and separate PACS system including database of anonymized medical images with the medical context and description for research and education purposes coexist within the current system.
+
+
+%This allows to keep current tools for processing the medical images when the technology of infrastructure is changed.
+%Thus user experience is kept on using same tools or same workflows, however, accessing much broader database of records or having more powerful tools for processing the data.
+ 
+The majority of user experience is kept also in the case of the application of remote voice analysis presented in section \ref{sec:resultsvoice}. The processing/analyzing application was kept on it's original platform but moved to remote server and a remote desktop protocol is used to redirect interaction and voice recording from user's computer to remote server and vice versa. Manipulating the . The recordings are stored on remote server for secondary use for further research and analysis algorithm improvement and in case of growth, the long-term storing issue of scientific data will be needed as in the case of medical images. Such kind of service can be deployed on any web server and a occasional need to educate or perform higher number of analysis concurently can be satisfied with cloud-computing deployment 
+
+In the case of application for parameter estimation presented in section \ref{sec:resultsestimation} the user must fill the data in a form that is a spreadsheet like table and respecting some simple convention. As seen from results, the computation is sensitive on communication overhead therefore more high performance computing (HPC) hardware would be beneficial for such computation. However for medium and highly complex models the deployment of worker nodes into cloud-computing environment to for virtual HPC cluster is worth to consider. The application for parameter sweep is embarassingly parallel and suitable for high throughput computing (HTC) which is the main focus of current grid-computing infrastructures.   
+%The added value of the grid-computing or cloud-computing technology is the ability of enhanced collaboration in use cases which were difficult to achieve, e.g. in cases if secondary use of clinical imaging data for research
+
+%for is an important area in research of rare diseases. As seen from the results obtained either in previous chapter or by other authors, the grid-computing is only one technology to facilitate some interconection of storage and computation capacity of different sites and servers owned by different organizations or individuals. 
+
+%As seen from the results, there are several main purpose for which the grid-computing or cloud-computing infrastructure was built and are currently used for:
+%\begin{enumerate}
+%\item{solve big computational problems in distributed environment and achieve results in a reasonable computational time}
+%\item{facilitate processing of the computation to support processing, analysis for further scientific results. This is provided by scientific portals, services, workflows etc. which allows non-exports in grid-computing or cloud-computing to do their job reducing researcher's time.}
+%\item{share and archive database of scientific data for further processing and reproducibility.}
+%\end{enumerate}
+%\subsubsection{Scalability}
+%
+%From the perspective of efficiency (time complexity) and scalability (degree of parallelization) the heuristic methods for parameter estimation application brings at least some solution in a reasonable time. For small models it, however, doesn't make sense as the overhead and parallelizable fraction limits the speedup gain from distribution to grid or cloud-computing\ref{sec:resultsestimation}. 
+%
+%For complex models the infrastructure of grid-computing or cloud-computing can be used to distribute simulation tasks to explore wider space of possible solution.
+
+\subsubsection{Platform}
+
+One of the important decision when porting an application to the grid environment is the platform of the used system. %The service-grid 
+
+The architecture which involves computational nodes deployed in cloud-computing infrastructure was influenced by the fact, that the model implementation is exported from third party tool to the standard FMU library as mentioned in section \ref{sec:methodsestimation} for the MS Windows platform, which determines the platform of the worker node. The virtualization - or in case of parameter estimation a cloud computing is utilized on prepared platform with MS Windows Datacenter license. In case of parameter sweep a desktop-grid computing BOINC worker and application for MS Windows platform only is prepared for volunteers with the compatiblet system. 
+
+To utilize service-grid infrastructure an export of the model into FMU library and implementation of the wrapper service should be done in the grid-computing platform which is usually Linux based system. Another option could be to use WINE\footnote{\url{https://www.winehq.org/} WINE. Accessed March 2015} -- compatibility layer capable of running Windows applications on several POSIX-compliant operating systems, such as Linux, Mac OSX, BSD. 
+
+%With respect to scalability the degree and fraction of paralelization from the whole computational process needs to be considered, as, e.g. for simulating simple models and estimating the parameters takes couple of minutes to hours on single computer, which may be acceptable and deployment on grid computing will introduce overhead which degrades the benefits.
+
+\subsubsection{Porting}
+Each of the introduced systems and application was from it's beginning prepared for serial workflow. To achieve higher level of programming model,  some manual intervention is usually needed on the system or source code of application.
+
+For the smaller types of application and scientific community with their own tools it is the question, whether to invest on porting their tools to grid specific platform and parallel programming model. In the case of voice science, the analytical application was deployed on virtual machine and made available via remote desktop feature. This caused that users and researchers may stay at their platform and focus on their key technologies and research rather than to learn new one.
+
+For the case of algorithms, that are already present in grid-computing middleware is key factor the worker/simulation part which is specific for each research community. 
+
+%The infrastructure built for purpose of large projects becomes open for smaller teams of scientists who doesn't have strong IT department or background. The process introduced before might be inneficient in terms of researcher's time who may spent time to porting it's application and tunning it up in grid or cloud environment. 
+
+%Integration to tools researchers already use, or introduce new tools with low learning curve ...
+
+
+
+%It was also shown that the batch-processing is not appropriate for some sort of application. The voice analysis is expected to be done in real-time and with access to some additional software, services and databases which are hard to maintain locally. 
+
+\section{Future work}
+%\subsubsection{Long Tail Science}
+
+The "long-tail" movement described by Anderson \cite{Anderson2006} is business strategy of companies such as Amazon and Apple focusing on offering and delivering not only very popular products but also products with relatively small quantities sold each to final consumers in a price acceptable for them  due to reduced sales, marketing and delivery costs. The expansion of Internet and it's related technologies caused this strategy to be profitable and successful and sales of minor products outperforms the most popular products .
+
+%The provenance and reproducibility of scientific results implied a need to long-term preservation of scientific data, however, if it is left on individual researcher, there is loss of data, as analysed by Vines et al. or Heidorn \cite{Vines2014,P.BryanHeidorn2008}.
+ 
+There is a discussion about how to preserve the scientific data in a long-term way to prevent loss of them  \cite{Vines2014,P.BryanHeidorn2008} and to facilitate an access to computational resources for large amount of small scientific groups which have limited resources to port, integrate or customize their current tools and processes -- the so called long-tail of science. Cloud-computing technologies seems to be customizable and may be an enabling technology to focus on long-tail science consumers as noted e.g. by Weinhardt et al.\cite{Weinhardt2009}. 
+
+The future work in this area may contribute to design and implement policies for long-term scientific data storage and service available for them to gain access to the powerfull capacity of grid-computing and cloud-computing infrastructure. 
+
+The medical imaging and processing methods are used to identify the parameters of models of human physiology for further diagnosis statement and treatment decision. E.g. Ralovich et al.\cite{Ralovich2012} proposed a noninvasive method based on computational fluid dynamic and magentic resonance imaging (MRI) to identify pressure difference in aorta for further hemodynamics analysis based on four element windkessel model. However, such type of studies usually focus on particular phenomenon and tries identify parameters of very simplified models that are currently known in systems biology domain. In the time of writing this thesis, Magnetic Particle Imager \footnote{introduced first by Gleich and Weizenecker\cite{Gleich2005}} (available only for animal models and not yet for human medicine) can produce high resolution images with fast shutter speed (~20 ms). Several computational and storage demanding biomedical application were shown in animal models by Saritas et al.\cite{Saritas2013}. There are research infrastructures which were established to coordinate the research in biology and medicine, e.g.   Integrated Structural Biology Infrastructure for Europe (INSTRUCT)\footnote{\url{https://www.structuralbiology.eu/} accessed March 2015}, European Life Science Infrastructure for Biological Information (ELIXIR)\footnote{\url{http://www.elixir-europe.org/} accessed March 2015},  European Biomedical Imaging Infrastructure (Euro-BioImaging)\footnote{\url{http://www.eurobioimaging.eu/} accessed March 2015} and others. As noted by Hunter et al.\cite{Hunter2013} the purpose of these initiatives is to understand high-level phenotypes from genomic, metabolomic, proteomic, imaging and other types of data which requires multiscale mathematical models and simulation delivered e.g. by virtual physiological human (VPH)\footnote{\url{http://www.vph-institute.org/} accessed March 2015} project. 
+%And the grid-based or  cloud-based medical data management solution can be used as technology and infrastructure to store and share the expected big ammount of raw scientific results, such as images or videos. 
+Future direction of research may focus not only on integrative effort of the multiscale modeling to integrate current complex models of human physiology which are based mainly on lumped parameter approach towards an integration with multidimensional models of geometrical, mechanical properties and the time-dependence of the compartments data taken from the medical and biological repositories. %Some of the methods and pilot results were shown in sections \ref{sec:resultsestimation} and \ref{sec:resultsboinc}. 
+
+\section{Summary}
+
+This thesis presents the infrastructure which thanks to virtualization technology joined several domain specific tools in the field of sharing and processing medical images, performing real-time voice analysis and simulating human physiology.  
+
+A seamless integration of grid-based PACS system was established with current distributed system to share DICOM medical images. An access to real-time voice analysis application via remote desktop technology brings this type of service to any computer capable to connect to Internet. A system to support analysis and building complex models of human physiology in the phase of parameter estimation and parameter sweep was introduced and additional computational nodes can be flexibly joined by starting prepared virtual machines in cloud-computing deployment. Methodology of building complex models of human physiology was contributed with the idea of acausal and object-oriented modeling techniques.
