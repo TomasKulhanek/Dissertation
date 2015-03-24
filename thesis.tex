@@ -1,12 +1,12 @@
-%% Verze pro jednostranny tisk:
-% Okraje: leve 40mm, prave 25mm, horni a dolni 25mm
+%% Verze pro oboustranny tisk:
+% Okraje: 
 % (ale pozor, LaTeX si prida 1in)
 \documentclass[12pt,a4paper,twoside]{book}
 \usepackage[czech,english]{babel}
 \setlength\textwidth{155mm}
 \setlength\textheight{242mm}
 \setlength\oddsidemargin{5mm}
-\setlength\evensidemargin{5mm}
+\setlength\evensidemargin{-5mm}
 \setlength\topmargin{0mm}
 %\setlength\headheight{15mm}
 \setlength{\headheight}{15pt}
@@ -22,7 +22,7 @@
 \nobibliography*
 
 \usepackage{titlesec}  %vzhled titulku prvni stranky kapitoly
-\let\footruleskip\undefined
+%\let\footruleskip\undefined
 \usepackage{fancyhdr}  %hlavicky stranek 
 
 %% Ostatn� bal��ky
@@ -31,7 +31,10 @@
 \usepackage{amsmath} % for mathematical equation
 \usepackage{amssymb} % for special symbols - blacktriangledown
 %\usepackage{palatino} % font
-\usepackage{bookman} % another font
+%\usepackage{bookman} % another font
+\usepackage[sc]{mathpazo} %palladio font
+\usepackage[scaled]{helvet}
+\usepackage{eulervm}
 
 \usepackage{setspace} % for linespacing
 %\linespread{1.0}%\sin­glespac­ing %\onehalfspacing 
@@ -48,6 +51,11 @@
 \usepackage{dtsyntax} % for listings modelica
 \usepackage[version=3]{mhchem} % for writing chemical compounds and reaction
 \usepackage{siunitx} % formating numbers
+\usepackage[intoc,refpage]{nomencl} % list of abbreviation
+
+\makenomenclature
+\renewcommand{\nomname}{List of Abbreviation}
+
 \renewcommand{\ttdefault}{pcr} % nicer font - courier in listing
 \usepackage[unicode,colorlinks,backref=page]{hyperref}   % Musi byt za vsemi ostatnimi balicky
 \hypersetup{pdftitle={Utilization of GRID in processing of medical information},
@@ -67,6 +75,7 @@
      \@nameuse{BR@r@#1\@extra@b@citeb}}}
 \makeatother
 
+
 \begin{document}
 \shorthandoff{-} % fix problems with babel czech and includepdf chars '-' 
 \pagenumbering{roman} %first pages with roman numbering
@@ -78,11 +87,12 @@
 %\sin­glespac­ing % 1.0 row space
 \include{header/header}
 %\frontmatter
-\pagestyle{plain} % other pages with number
 \onehalfspacing %1.5 row space
 \include{header/idrecord}
 \include{header/ack}
+\pagestyle{plain} % other pages with number
 \include{abstract/abstract}
+\include{abstract/abstracten}
 \small
 
 \tableofcontents
@@ -92,10 +102,23 @@
 \pagenumbering{arabic} %thesis pages with arabic numering
 \setcounter{page}{1}
 
+%\pagestyle{fancy}
+%\fancyfoot[LE,RO]{\thepage}
 \pagestyle{fancyplain}
 \fancyhf{}
-\lhead{ \fancyplain{}{\leftmark} }
+%\lhead{ \fancyplain{}{\leftmark} }
+\fancyhead[LE]{ \fancyplain{}{\leftmark} }
+%\fancyhead[RE]{ \thepage }
+\fancyhead[RO]{ \fancyplain{}{\leftmark} }
+%\fancyhead[LO]{ \thepage }
+
 \cfoot{ \thepage }
+
+%\lhead{}
+%\cfoot{}
+%\fancyhead[LE,RO]{\thepage}
+%\fancyhead[LE,RO]{\slshape \rightmark}
+%\fancyhead[LO,RE]{\slshape \leftmark}
 
 \include{chapter1/chapter1}
 \include{chapter2/chapter2}
@@ -106,6 +129,8 @@
 %\include{chapter6/chapter6}
 \include{chapter7/chapter7}
 \include{chapter8/chapter8}
+
+\printnomenclature
 
 \begin{appendices}
 \include{appendix/appendix1}

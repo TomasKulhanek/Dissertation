@@ -1,0 +1,70 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{BOINC}]\begingroup Berkeley Open Infrastructure for Network Computing\nomeqref {2.4}
+		\nompageref{18}
+  \item [{CPU}]\begingroup central processor unit\nomeqref {2.4}
+		\nompageref{10}
+  \item [{CRUD}]\begingroup Create Read Update Delete\nomeqref {2.4}
+		\nompageref{15}
+  \item [{CVS}]\begingroup cardiovascular system\nomeqref {3.0}
+		\nompageref{30}
+  \item [{DFT}]\begingroup Discrete Fourier Transformation\nomeqref {3.0}
+		\nompageref{27}
+  \item [{DICOM}]\begingroup Digital Imaging and Communication Protocol\nomeqref {3.0}
+		\nompageref{24}
+  \item [{DWDM}]\begingroup Dense wavelength division multiplexing\nomeqref {2.4}
+		\nompageref{16}
+  \item [{EGI}]\begingroup European Grid Infrastructure\nomeqref {2.4}
+		\nompageref{17}
+  \item [{FFT}]\begingroup Fast Fourier Transformation\nomeqref {3.0}
+		\nompageref{27}
+  \item [{FMU}]\begingroup Functional Mockup Unit\nomeqref {3.1}
+		\nompageref{32}
+  \item [{FTP}]\begingroup File Transfer Protocol\nomeqref {3.0}
+		\nompageref{26}
+  \item [{HPC}]\begingroup High Performance Computing\nomeqref {2.4}
+		\nompageref{19}
+  \item [{HTC}]\begingroup High throughput computing\nomeqref {2.4}
+		\nompageref{19}
+  \item [{HTML}]\begingroup HyperText Markup Language\nomeqref {2.4}
+		\nompageref{13}
+  \item [{HTTP}]\begingroup Hypertext Transfer Protocol\nomeqref {2.4}
+		\nompageref{13}
+  \item [{I/O}]\begingroup Input Output\nomeqref {2.4}\nompageref{18}
+  \item [{LHC}]\begingroup Large Hadron Collider\nomeqref {2.4}
+		\nompageref{18}
+  \item [{MPI}]\begingroup Message Passing Interface\nomeqref {2.4}
+		\nompageref{12}
+  \item [{MTC}]\begingroup Many Task Computing\nomeqref {2.4}
+		\nompageref{19}
+  \item [{NGI}]\begingroup National Grid Initiative\nomeqref {2.4}
+		\nompageref{17}
+  \item [{OGSA}]\begingroup Open Grid Service Architecture\nomeqref {2.4}
+		\nompageref{16}
+  \item [{PACS}]\begingroup Picture Archiving and Communication System\nomeqref {1.0}
+		\nompageref{2}
+  \item [{RDP}]\begingroup remote desktop protocol\nomeqref {3.0}
+		\nompageref{27}
+  \item [{REST}]\begingroup Representation State Transfer\nomeqref {2.4}
+		\nompageref{15}
+  \item [{SOA}]\begingroup Service Oriented Architecture\nomeqref {2.4}
+		\nompageref{16}
+  \item [{SSH}]\begingroup Secure Shell\nomeqref {3.0}\nompageref{27}
+  \item [{SSL}]\begingroup Secure Sockets Layer\nomeqref {3.0}
+		\nompageref{25}
+  \item [{TCP/IP}]\begingroup Transmission Control Protocol/Internet Protocol\nomeqref {2.4}
+		\nompageref{13}
+  \item [{UDP}]\begingroup User Datagram Protocol\nomeqref {2.4}
+		\nompageref{13}
+  \item [{UML}]\begingroup Unified Modeling Language\nomeqref {2.0}
+		\nompageref{5}
+  \item [{VPN}]\begingroup Virtual Private Network\nomeqref {3.0}
+		\nompageref{25}
+  \item [{WLCG}]\begingroup Worldwide Large Hadron Collider Computing Grid\nomeqref {2.4}
+		\nompageref{17}
+  \item [{XML}]\begingroup Extensible Markup Language\nomeqref {3.1}
+		\nompageref{32}
+
+\end{thenomenclature}

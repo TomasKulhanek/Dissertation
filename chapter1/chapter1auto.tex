@@ -1,0 +1,70 @@
+\section{Introduction}
+
+The \emph{grid-computing} is usually defined as sharing computational and data storage resources across organizational boundaries. In recent years, the development of virtualization technologies enhances the availability of services provided by grid-computing and additionally enabled an evolution of so called \emph{cloud-computing}, which can utilize virtual environment on real powerful computing infrastructure too. Based on the development of technologies and also philosophy of providing them to end users, this thesis focus on multidisciplinary research related to grid-computing as well as to cloud-computing and it's utilization in biomedical research and application related to processing of medical information.
+
+The term "medical information" is too wide and further work focuses on the following selected areas, which were part of:
+(1) exchange and processing of medical images, (2) analysis of human voice and (3) modeling and simulation of human physiology. %This work focuses on processing of medical information should give enhanced information, which can be analysed easily. Thus further analysis or synthesis of such information is beyond this work, so the aim is not to give particular results on some specific diseasies, pathologies etc., however, with cooperation of other experts it is a desired side effect.
+
+The author's work was published in a series of peer-reviewed papers of international journals and peer-reviewed conference proceedings \cite{kulhanek2009, kulhanek2010b, kulhanek2010c,  
+Kulhanek2014Parameters, Kulhanek2014Modeling, Kulhanek2014mefanet, Matejak2014sj} which are attached into this work as appendices.
+The author's work and contribution was also presented in international conferences and published in the respective proceedings and transactions
+\cite{Kulhanek2010, Kulhanek2013c, kofranek2013hummod, Matejak2014}. The work was also popularized on the local and regional conferences and their respective proceedings \cite{Kulhanek2008Mefanet, Sarek2009, kulhanek2009dd, Kulhanek2009Mefanet, Kulhanek2010d, Kulhanek2010Mefanet, Kulhanek2011, kulhanek2011dd, Kulhanek2012, Kulhanek2013b, Kulhanek2014, Kulhanek2012a}. Author contributed to the utility model registered by the Czech Industrial Property Office \cite{Kofranek2014a}.
+
+\section{Thesis Goal}
+The hypothesis stated by this thesis is that the technologies related to grid-computing and cloud-computing may improve processing of medical information to perform demanding tasks which are almost impossible or may need onerous effort to achieve using classical local or institutional resources.
+ 
+The aim of the thesis is to discuss the hypothesis in different areas of biomedical research and it's application.
+The thesis tries to find answers to the following questions:
+\begin{itemize}
+\item \emph{What are the possible benefits and limitation of utilizing grid-computing (or cloud-computing) technology for processing medical information?} In the time of starting the work on this thesis, it was believed that grid-computing may be an answer to scalability issues of exchanging large ammount of data or doing demanding long-term computation. %In the field of medicine, such large ammount of data were exchanged using DICOM format and protocol explained in section \ref{sec:imaging} and the issue was to integrate it with computing infrastructure and tools designed for the purpose of science in particle physics.
+%\item \emph{What are the limitation of utilizing these technologies?} In the time of starting the work on this thesis, the majority of services and tools in grid-computing environment were developed for the purpose of computation of particle physics experiments, however, infrastructure were designed to be open for any scientific domain.
+\item \emph{What additional service should provide grid-computing or cloud-computing infrastructure?} In the time of starting the work on this thesis, the grid-computing infrastructure was used mainly to store, exchange and process medical data, mainly images in DICOM format and protocol (details in section \ref{sec:imaging}.
+\item \emph{How should be designed the architecture of such services?} The main type of service design was service oriented architecture (SOA), while a focus was again get to plain old data objects represented e.g. in JSON format and processed by RESTful web services following REST architectural constraints (explained more in section \ref{sec:introintegration}.     
+%\item	 Study the latest achievements in the field of exchanging medical images and study possible improvements using the grid-computing and cloud-computing technology.
+%\item Analysis and processing of voice signal to support clinical and educational applications.
+%\item analysis and mathematical modeling and simulation of biological systems
+%\item Identify use cases in other fields of biomedicine which are suitable to utilize the power of grid-computing and cloud-computing infrastructure.
+%\item Develop and test prototype application utilizing grid or cloud technologies.
+\end{itemize}
+
+\section{Thesis Contribution}
+The author claims that the following contribution was made to the state of the art of biomedical informatics related to grid-computing and cloud-computing.
+\begin{itemize}
+\item Proposal of grid infrastructure and pilot implementation of grid-based system of exchanging medical images integrated with existing distributed systems. The results were published as \cite{kulhanek2009} and popularized as \cite{Kulhanek2008Mefanet,Sarek2009,kulhanek2009dd}. The author of this thesis customized the existing results of Globus MEDICUS project and deployed a grid application in the servers networked via academic network CESNET and integrated with existing regional PACS system. 
+\item Pilot implementation of more generic infrastructure as a service for the community within the biomedical research \cite{kulhanek2010c, kulhanek2011dd}. The author of this thesis proposed the idea to share the physical resources and to provide virtual environment for specific needs of particular use-cases. With development of virtualization techniques and cloud-computing technologies the pilot infrastructure were tested on examples of selected research projects.
+\item Proposal of software architecture and implementation of web-based service for real-time remote analysis of human voice. The results were published as \cite{kulhanek2010b} and popularized as \cite{Kulhanek2010d, Kulhanek2012}. The author of this thesis contributed to the idea of utilizing interactive remote access to the computing environment. For this reason it was identified requirements and customized the existing network protocol to transfer voice signal losslessly. Other co-authors implemented the algorithms and application to analyse voice signal.
+\item Improved methodology for modeling of complex physiological systems \cite{Kulhanek2014Modeling, Kulhanek2014mefanet, Matejak2014, kofranek2013hummod}. Author of this thesis contributed to the idea of building complex  mathematical models from the basic components and keep them in an understandable and maintainable form utilizing some known good practices (patterns) and prevent bad practices (antipatterns) known from object-oriented programming. Author advised and implemented several basic blocks and models of pulsatile cardiovascular system in Modelica language. The other co-authors implemented the library to model physiology using integrative approach and implemented the complex models integrating different domains together.
+\item Design and implementation of system to estimate parameters of complex mathematical models to validate or calibrate models of human physiology published as \cite{Kulhanek2014Parameters} and gradual development of related technologies were published and popularized as \cite{Kulhanek2010, Kulhanek2013c, Kulhanek2011, Kulhanek2014}. Author of this thesis designed the architecture for distributed parameter estimation algorithm and implemented pilot deployment utilizing scientific cloud-computing infrastructure and integrated complex model simulation with numerical identification algorithms. Other co-authors implemented complex models of human physiology in Modelica language and tested several algorithms for parameter estimation.
+\item Improved mathematical model of oxygen, carbon dioxide and hydrogen ion binding to Hemoglobin \cite{Matejak2014sj}. Author of this thesis implemented this model in Modelica and calibrated the parameters of the model. Other co-authors analysed and proposed new mathematical model based on basic physical and chemical laws and relation published in literature.
+\item Simulation of complex models of human physiology as part of virtual simulator on portable and mobile devices utilizing cloud-computing \cite{Kulhanek2013c,Kulhanek2013b}. Author of this thesis contributed to the idea of hybrid architecture of web simulators - utilizing the infrastructure for parameter estimation to simulate complex model remotely and process/visualize the results locally. Other co-authors implemented complex models of human physiology and specified and implemented simulation scenarios for educational purposes.
+\item Virtual patient simulator prototype registered as utility model by the Industrial Property Office in the Czech Republic \cite{Kofranek2014a}. Author contributed to the development of prototype virtual simulator within module of cooperation of multiple instances within virtual classroom. Other co-authors designed and implemented models of human physiology, clinically relevant educational scenarios and implemented 3D visualization of selected scenarios using game engine Unity 3D\footnote{\url{http://unity3d.com/} accessed March 2015}.
+\end{itemize}
+
+\section{Thesis Structure}
+This thesis is interdisciplinar, therefore the following chapters will cover the topics not-only from technical and computer-science point of view, but touches some topics related to the medical science mainly human physiology and it's mathematical models and simulations.
+The chapter \ref{sec:stateoftheart} provides an overview of the state of the art in the theory of computation, parallel computation, distributed computation and focus on task-parallelization in grid-computing and cloud-computing infrastructure. 
+
+%The chapter \ref{sec:methods} describes general methods available for integrating different technologies and specific methods used to obtain further results. 
+
+Introduction, particular methods and results to selected areas of biomedical application and research are introduced in chapter \ref{sec:imaging} for sharing medical images, in chapter \ref{sec:voice} about voice science and chapter \ref{sec:models} about computational physiology.
+
+The chapter \ref{sec:results} summarizes general results obtained by the research methods in specific areas of biomedical research and applications. The chapter \ref{sec:conclusion} discuss achievements and answers hypothesis and questions stated at the beginning of the work and recommends further direction of the research effort.
+
+The appendices contain the selected papers \cite{kulhanek2009,kulhanek2010b,kulhanek2010c,Kulhanek2014Parameters, Kulhanek2014Modeling, Kulhanek2014mefanet, Matejak2014sj} which are most relevant to the topic of this thesis and which were published in international peer-reviewed journals or in peer-reviewed conference proceedings:
+
+\textbf{Appendix~\ref{app:processing}} is the paper \cite{kulhanek2009} \emph{Processing of Medical Images in Virtual Distributed Environment} published by ACM as part of the proceedings of the 2009 Euro American Conference on Telematics and Information Systems: New Opportunities to increase Digital Citizenship.
+
+\textbf{Appendix~\ref{app:remote}} is the paper \cite{kulhanek2010b} \emph{Remote Analysis of Human Voice – Lossless Sound Recording Redirection} published in Analysis of Biomedical Signals and Images. Proceedings of 20th International EURASIP Conference (BIOSIGNAL).
+
+%\textbf{Appendix~\ref{app:fromeducational}} is the paper \cite{Kulhanek2011} \emph{From Educational Models Towards Identification of Physiological Systems} published by Institute of Biostatistics and Analyses of Masary University in Brno, Czech Republic in the proceedings Mefanet Report 04, Efficient multimedia teaching tools in medical education.  
+
+\textbf{Appendix~\ref{app:infrastructure}} is the paper \cite{kulhanek2010c} \emph{Infrastructure for data storage and computation in biomedical research} published by Euromise s.r.o. in the European Journal of Biomedical Informatics.
+
+\textbf{Appendix~\ref{app:parameter}} is the paper \cite{Kulhanek2014Parameters} \emph{Parameter estimation of complex mathematical models of human physiology using remote simulation distributed in scientific cloud} published in the IEEE Xplore Digital Library as part of the proceedings of the 2014 IEEE-EMBS International Conference on Biomedical and Health Informatics.
+
+\textbf{Appendix~\ref{app:modeling}} is the paper \cite{Kulhanek2014Modeling} \emph{Modeling of short-term mechanism of arterial pressure control in the cardiovascular system: Object-oriented and acausal approach} published by ELSEVIER in Computers in Biology and Medicine 2014, \textbf{IF(2013): 1.475}.
+
+\textbf{Appendix~\ref{app:simplemodelsd}} is the paper \cite{Kulhanek2014mefanet} \emph{Simple models of the cardiovascular system for educational and research purposes} published in Mefanet Journal 2014.
+
+\textbf{Appendix~\ref{app:adair}} is the paper \cite{Matejak2014sj} \emph{Adair-Based Hemoglobin Equilibrium with Oxygen, Carbon Dioxide and Hydrogen Ion Activity} published in Scandinavian Journal of Clinical and Laboratory Investigation 2014, \textbf{IF(2013): 2.009}.
+

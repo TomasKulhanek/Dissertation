@@ -1,0 +1,147 @@
+%% Verze pro oboustranny tisk:
+% Okraje: 
+% (ale pozor, LaTeX si prida 1in)
+\documentclass[10pt,a5paper]{article}
+\usepackage[czech,english]{babel}
+\usepackage[a5paper,margin=10mm]{geometry}
+\newgeometry{top=20mm,bottom=20mm,right=15mm,left=15mm}
+%\setlength\textwidth{102mm}
+%\setlength\textheight{145mm}
+%\setlength\oddsidemargin{0mm}
+%\setlength\evensidemargin{0mm}
+%\setlength\topmargin{0mm}
+%\setlength\headheight{5mm}
+%\setlength{\headheight}{15pt}
+%\setlength{\parindent}{1cm}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{bibentry}
+\usepackage{url}
+\usepackage[nottoc]{tocbibind}
+\nobibliography*
+
+\usepackage{titlesec}  %vzhled titulku prvni stranky kapitoly
+%\let\footruleskip\undefined
+\usepackage{fancyhdr}  %hlavicky stranek 
+
+%% Ostatn� bal��ky
+\usepackage{graphicx}
+%\usepackage{amsthm} % for mathematical theorems, lemma, proof
+\usepackage{amsmath} % for mathematical equation
+\usepackage{amssymb} % for special symbols - blacktriangledown
+%\usepackage{palatino} % font
+%\usepackage{bookman} % another font
+\usepackage[sc]{mathpazo} %palladio font
+\usepackage[scaled]{helvet}
+\usepackage{eulervm}
+
+%\usepackage{setspace} % for linespacing
+%\linespread{1.0}%\sin­glespac­ing %\onehalfspacing 
+\usepackage[T1]{fontenc} %font encoding e.g. for czech characters
+%\usepackage{diagbox} %diagonala v tabulce
+%\usepackage{multirow} %viceradkove tabulky
+%\usepackage[font=footnotesize]{caption} %velikost fontu v popisu
+%\usepackage{etoolbox} %pro pozdejsi definici zpetne reference
+%\usepackage[titletoc]{appendix} %appendices with names
+%\usepackage{listings,multicol} % for code listings, multicolumned
+%\lstset{% escape sequence inside listing
+%  escapeinside={(*}{*)},%
+%}
+%\usepackage{dtsyntax} % for listings modelica
+%\usepackage[version=3]{mhchem} % for writing chemical compounds and reaction
+%\usepackage{siunitx} % formating numbers
+%\renewcommand{\ttdefault}{pcr} % nicer font - courier in listing
+\usepackage[unicode,colorlinks,backref=page]{hyperref}   % Musi byt za vsemi ostatnimi balicky
+\hypersetup{pdftitle={Utilization of GRID in processing of medical information},
+            pdfauthor={Tomáš Kulhánek},
+            plainpages=false,
+            urlcolor=blue,
+            linkcolor=blue,
+            citecolor=blue
+            }
+
+%\overfullrule=2cm %vyznacit na okraji, kde se nepodarilo zarovnat
+%definice jak ma vypadat zpetna reference
+%\makeatletter
+%\patchcmd{\BR@backref}{\newblock}{\newblock(cited on p.~}{}{}
+%\patchcmd{\BR@backref}{\par}{)\par}{}{}
+%\renewcommand\bibentry[1]{\nocite{#1}{\frenchspacing
+%     \@nameuse{BR@r@#1\@extra@b@citeb}}}
+%\makeatother
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries \thechapter. #1
+   \par\nobreak
+   \vskip 10\p@
+}}
+\def\@makeschapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries #1
+   \par\nobreak
+   \vskip 10\p@
+}}
+\makeatother
+
+\begin{document}
+\shorthandoff{-} % fix problems with babel czech and includepdf chars '-' 
+\pagenumbering{arabic} %first pages with roman numbering
+\setcounter{page}{1}
+%\lefthyphenmin=2
+%\righthyphenmin=2
+\pagestyle{empty} % title page without number
+%\singlespacing 
+%\sin­glespac­ing % 1.0 row space
+\include{header/headerauto}
+
+%\frontmatter
+%\onehalfspacing %1.5 row space
+\include{header/titleauto}
+%\include{header/ack}
+%\pagestyle{plain} % other pages with number
+%\mainmatter
+
+\tableofcontents
+
+\newpage
+\section*{Abstrakt}
+\addcontentsline{toc}{section}{Abstrakt (česky)}
+
+\include{abstract/abstract}
+\newpage
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+\include{abstract/abstracten}
+
+%\small
+%\pagenumbering{arabic} %thesis pages with arabic numering
+%\setcounter{page}{1}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+%\lhead{ \fancyplain{}{\leftmark} }
+\fancyhead[LE]{ \fancyplain{}{\leftmark} }
+%\fancyhead[RE]{ \thepage }
+\fancyhead[RO]{ \fancyplain{}{\leftmark} }
+%\fancyhead[LO]{ \thepage }
+
+\cfoot{ \thepage }
+
+
+\include{chapter1/chapter1auto} %intro
+\include{chapter2/chapter2auto} %hypothesis
+\include{chapter3/chapter3auto} %methods
+%\include{chapter4/chapter4}
+
+%\include{chapter5/chapter5}
+%\include{chapter6/chapter6}
+\include{chapter7/chapter7auto} %results
+\include{chapter8/chapter8auto} %discussion,conclusion
+
+\bibliographystyle{unsrturltom}
+\bibliography{bibliography/Dizertace}
+\include{header/publicauto}
+\end{document}

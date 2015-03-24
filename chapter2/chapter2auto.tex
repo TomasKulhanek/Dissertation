@@ -1,0 +1,18 @@
+\section{Hypothesis}
+To summarize this section. If there will be technological speedup, this will impact mainly the class of problems which are solvable by polynomial algorithm. For the problems where the computation needs tremendous ammount of time, because current known algorithm is exponential, there can be used non-exact methods to find at least some solution if not the exact one. 
+\begin{itemize}
+\item{The \emph{heuristic methods} tries to eliminate the number of steps of computation by some implicit or explicit knowledge of the specific problem itself E.g. eliminating solution classes that seems not to go to optimal solution. With combination of brute-search the heuristic methods reduce the size of all possible solution candidates to check.}
+\item{The \emph{randomization methods} use non-deterministic methods in some level of computation.E.g. Monte-Carlo method is used to compute problems using pseudo-random generated values and after several iterations statistical methods are used to compute expected value and standard deviation. }
+\item{\emph{Restriction on input data} - is another form of using the explicit knowledge of the problem instance ad it may reduce all possible values to be checked. }
+\item{\emph{Approximation algorithm} - may find not only some good solution, but can quantify how far from the optimal solution the found is good with some degree of probability.}
+\end{itemize}
+
+To summarize this section; parallel computing can introduce speedup on current computational technology and some computation problems may become feasible.
+Also overhead caused by parallelization and fraction of non-parallelizible parts should be considered as it may degrade expected speedup.
+In case of exponential algorithm (e.g. for NP-complete problems) the speedup will increase the size of solvable problem only slightly (see table \ref{table:speedupeffect}) and some problems cannot be (or it is believed) significantly speedup by parallel computing. 
+In further text a focus will be given mainly to task parallelism and distributed computing. 
+
+\section{Distributed computing technologies}
+\label{sec:distributed}
+
+Distributed computing is based on the idea to spread the computation task into set of computers which are connected via computational network.
