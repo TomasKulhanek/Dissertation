@@ -1,0 +1,119 @@
+%% Verze pro oboustranny tisk:
+% Okraje: 
+% (ale pozor, LaTeX si prida 1in)
+\documentclass[10pt,a5paper,oneside]{book}
+\usepackage[english,czech]{babel}
+\usepackage[a5paper,margin=10mm]{geometry}
+\newgeometry{top=20mm,bottom=20mm,right=15mm,left=15mm}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[backend=bibtex, style=trad-unsrt]{biblatex}
+\bibliography{DizertaceAutoreferat}
+
+\DeclareBibliographyCategory{fullcited}
+\newcommand{\mybibexclude}[1]{ \addtocategory{fullcited}{#1} }
+
+\usepackage{url}
+\usepackage[nottoc]{tocbibind}
+
+%\usepackage{titlesec}  %vzhled titulku prvni stranky kapitoly
+\selectlanguage{english}
+\usepackage{fancyhdr}  %hlavicky stranek 
+
+%% Ostatn� bal��ky
+\usepackage{graphicx}
+\usepackage{amsmath} % for mathematical equation
+\usepackage{amssymb} % for special symbols - blacktriangledown
+\usepackage[sc]{mathpazo} %palladio font
+\usepackage[scaled]{helvet}
+\usepackage{eulervm}
+
+\usepackage{setspace} % for linespacing
+\onehalfspacing 
+\usepackage[T1]{fontenc} %font encoding e.g. for czech characters
+\usepackage[intoc,refpage]{nomencl} % list of abbreviation
+
+\makenomenclature
+\renewcommand{\nomname}{List of Abbreviations}
+
+%\usepackage{dtsyntax} % for listings modelica
+%\usepackage[version=3]{mhchem} % for writing chemical compounds and reaction
+%\usepackage{siunitx} % formating numbers
+%\renewcommand{\ttdefault}{pcr} % nicer font - courier in listing
+
+\usepackage[unicode,colorlinks]{hyperref}   % Musi byt za vsemi ostatnimi balicky
+\hypersetup{pdftitle={Utilization of GRID in processing of medical information},
+            pdfauthor={Tomáš Kulhánek},
+            plainpages=false,
+            urlcolor=blue,
+            linkcolor=blue,
+            citecolor=blue
+            }
+
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries \thechapter. #1
+   \par\nobreak
+   \vskip 10\p@
+}}
+\def\@makeschapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries #1
+   \par\nobreak
+   \vskip 10\p@
+}}
+\makeatother
+
+\begin{document}
+\selectlanguage{english}
+
+\shorthandoff{-} % fix problems with babel czech and includepdf chars '-' 
+\pagenumbering{arabic} %first pages with roman numbering
+\setcounter{page}{1}
+\pagestyle{empty} % title page without number
+\include{headerauto}
+
+\pagestyle{plain} % other pages with number
+
+\include{titleauto}
+\selectlanguage{english}
+
+\setcounter{tocdepth}{0}
+\tableofcontents
+\newpage
+\addcontentsline{toc}{chapter}{Abstrakt (česky)}
+\include{abstractauto}
+\addcontentsline{toc}{chapter}{Abstract}
+\include{abstractenauto}
+
+\clearpage
+\markboth{\nomname}{\nomname}% maybe with \MakeUppercase
+\printnomenclature
+\clearpage
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhead[L]{ \fancyplain{}{\leftmark} }
+\cfoot{ \thepage }
+
+\selectlanguage{english}
+\begingroup
+\let\clearpage\relax
+
+\include{chapter1auto} %intro
+\include{chapter2auto} %hypothesis
+\include{chapter3auto} %methods
+\include{chapter4auto} %results
+\include{chapter5auto} %discussion
+
+\endgroup
+
+\include{chapter6auto} %conclusion
+
+\printbibliography[notcategory=fullcited, heading=bibintoc]
+
+\include{publicauto}
+\end{document}

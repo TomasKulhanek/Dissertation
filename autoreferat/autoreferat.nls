@@ -1,0 +1,24 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{BOINC}]\begingroup Berkeley Open Infrastructure for Network Computing\nomeqref {1.0}
+		\nompageref{7}
+  \item [{EGI}]\begingroup European Grid Infrastructure\nomeqref {1.0}
+		\nompageref{7}
+  \item [{FMI}]\begingroup Functional Mockup Interface\nomeqref {3.0}
+		\nompageref{12}
+  \item [{FMU}]\begingroup Functional Mockup Unit\nomeqref {3.0}
+		\nompageref{12}
+  \item [{IaaS}]\begingroup Infrastructure as a Service\nomeqref {1.0}
+		\nompageref{8}
+  \item [{NGI}]\begingroup National Grid Initiative\nomeqref {1.0}
+		\nompageref{7}
+  \item [{RDP}]\begingroup Remote Desktop Protocol\nomeqref {3.0}
+		\nompageref{10}
+  \item [{WLCG}]\begingroup Worldwide Large Hadron Collider Computing Grid\nomeqref {1.0}
+		\nompageref{7}
+  \item [{XML}]\begingroup Extensible Markup Language\nomeqref {3.0}
+		\nompageref{12}
+
+\end{thenomenclature}
