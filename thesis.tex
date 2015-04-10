@@ -5,9 +5,9 @@
 \usepackage[czech,english]{babel}
 \setlength\textwidth{155mm}
 \setlength\textheight{242mm}
-\setlength\oddsidemargin{5mm}
-\setlength\evensidemargin{-5mm}
-\setlength\topmargin{0mm}
+\setlength\oddsidemargin{7mm}
+\setlength\evensidemargin{-3mm}
+\setlength\topmargin{-8mm}
 %\setlength\headheight{15mm}
 \setlength{\headheight}{15pt}
 %\setlength{\parindent}{1cm}
@@ -21,7 +21,7 @@
 \usepackage[nottoc]{tocbibind}
 \nobibliography*
 
-\usepackage{titlesec}  %vzhled titulku prvni stranky kapitoly
+%\usepackage{titlesec}  %vzhled titulku prvni stranky kapitoly
 %\let\footruleskip\undefined
 \usepackage{fancyhdr}  %hlavicky stranek 
 
@@ -54,7 +54,7 @@
 \usepackage[intoc,refpage]{nomencl} % list of abbreviation
 
 \makenomenclature
-\renewcommand{\nomname}{List of Abbreviation}
+\renewcommand{\nomname}{List of Abbreviations}
 
 \renewcommand{\ttdefault}{pcr} % nicer font - courier in listing
 \usepackage[unicode,colorlinks,backref=page]{hyperref}   % Musi byt za vsemi ostatnimi balicky
@@ -98,50 +98,38 @@
 \tableofcontents
 
 \mainmatter
-
+\widowpenalty10000
+\clubpenalty10000
 \pagenumbering{arabic} %thesis pages with arabic numering
 \setcounter{page}{1}
 
-%\pagestyle{fancy}
-%\fancyfoot[LE,RO]{\thepage}
 \pagestyle{fancyplain}
 \fancyhf{}
-%\lhead{ \fancyplain{}{\leftmark} }
 \fancyhead[LE]{ \fancyplain{}{\leftmark} }
-%\fancyhead[RE]{ \thepage }
 \fancyhead[RO]{ \fancyplain{}{\leftmark} }
-%\fancyhead[LO]{ \thepage }
-
 \cfoot{ \thepage }
-
-%\lhead{}
-%\cfoot{}
-%\fancyhead[LE,RO]{\thepage}
-%\fancyhead[LE,RO]{\slshape \rightmark}
-%\fancyhead[LO,RE]{\slshape \leftmark}
 
 \include{chapter1/chapter1}
 \include{chapter2/chapter2}
 \include{chapter3/chapter3}
-%\include{chapter4/chapter4}
 
-%\include{chapter5/chapter5}
-%\include{chapter6/chapter6}
 \include{chapter7/chapter7}
 \include{chapter8/chapter8}
 
+%\chapter*{List of Abbreviation}
+\cleardoublepage% or \clearpage
+\markboth{\nomname}{\nomname}% maybe with \MakeUppercase
 \printnomenclature
 
 \begin{appendices}
 \include{appendix/appendix1}
 \include{appendix/appendix2bio}
-%\include{appendix/appendixMR}
 \include{appendix/appendix2}
 \include{appendix/appendix3}
 \include{appendix/appendix4}
 \include{appendix/appendix4mefanet}
 \include{appendix/appendix5}
 \end{appendices}
-\bibliographystyle{unsrturltom}
+\bibliographystyle{unsrturltom} %unsrturltom
 \bibliography{bibliography/Dizertace}
 \end{document}

@@ -1,0 +1,18 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{BOINC}]\begingroup Berkeley Open Infrastructure for Network Computing\nomeqref {1.0}
+		\nompageref{7}
+  \item [{CPU}]\begingroup Central Processing Unit\nomeqref {3.0}
+		\nompageref{10}
+  \item [{EGI}]\begingroup European Grid Infrastructure\nomeqref {1.0}
+		\nompageref{7}
+  \item [{IaaS}]\begingroup Infrastructure as a Service\nomeqref {1.0}
+		\nompageref{8}
+  \item [{NGI}]\begingroup National Grid Initiative\nomeqref {1.0}
+		\nompageref{7}
+  \item [{WLCG}]\begingroup Worldwide Large Hadron Collider Computing Grid\nomeqref {1.0}
+		\nompageref{7}
+
+\end{thenomenclature}

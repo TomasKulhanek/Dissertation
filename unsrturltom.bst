@@ -1,3 +1,4 @@
+% 4thApr2015 tomas: changed first name to abbreviation
 % 29thOct2014 tomas: changed max number of authors to 5 - et.al
 %%% Modification of BibTeX style file /usr/local/texlive/2009/texmf-dist/bibtex/bst/base/unsrt.bst
 %%% ... by urlbst, version 0.7 (marked with "% urlbst")
@@ -356,7 +357,7 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't :=
+    { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't :=
       nameptr #1 >
          {
           nameptr #5
