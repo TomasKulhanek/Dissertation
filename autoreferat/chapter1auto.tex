@@ -6,6 +6,20 @@ Another approach to grid computing is joining desktop computers from an individu
 
 In recent years, the development of virtualization technologies has enhanced the availability of services that are provided by grid computing. It has additionally enabled an evolution of the so-called \emph{cloud computing}, in which computing resources can be rapidly provisioned and released with minimal management effort or service provider interaction. This implicates important feature of cloud-computing -- elasticity -- ability to scale up and down computing resources when required \cite{Mell2011}. The cloud computing is provided in several models, however, currently the scientific infrastructures offer mainly Infrastructure as a Service (IaaS)\nomenclature{IaaS}{Infrastructure as a Service}, which offers the whole virtual infrastructure including virtual machine and network accessible for user per request.
 
+Applications that are computed within a grid or cloud infrastructure can be characterized by the quantity of tasks being performed, the size of the input data and the communication that needs to be carried out between concurrent tasks.
+And using such characterization three main categories of the application model are recognized. 
+\begin{itemize}
+\item
+The term High Throughput Computing (HTC)\nomenclature{HTC}{High Throughput Computing} is used for computation in which tasks take a long time. These are relatively loosely coupled and resources are used over a long period of time. Performance or capacity is usually mentioned  in operations or CPUs per month or year. Grid computing focus mainly on HTC.
+
+%While HTC takes a long time, 
+\item
+The High Performance Computing (HPC)\nomenclature{HPC}{High Performance Computing} is usually characterized as a small number of tasks which need to communicate quite often. The tasks are relatively tightly coupled and can take shorter time than HTC. Performance is measured in operations per second (FLOPS)\nomenclature{FLOPS}{Floating-Point Operations per Second} \cite{Hager2010,Levesque2010}. The grid computing or cloud computing infrastructure can involve HPC servers or clusters.% and, thus, a job or task that requires such HPC hardware is scheduled and executed there.
+\item
+Many Task Computing (MTC)\nomenclature{MTC}{Many Task Computing} aims to bridge HTC and HPC. While the computation usually takes a shorter amount of time, the data exchange is in MB rather than in GB and it involves computing much more heterogeneous problems, which are not "happily" parallel \cite{Raicu2008}. %However, middleware for HPC or HTC, which are present in grid computing infrastructures, may introduce some shortcomings. 
+%Therefore Raicu et al. proposed and implemented a prototype of task execution framework, which is suitable for MTC to prevent some shortcomings of HTC or HPC \cite{Raicu2008, Raicu2009,Raicu2010}.
+\end{itemize}
+
 With respect to technology development available in scientific infrastructures, this thesis focus not only on grid computing but also on cloud computing technology, which were available for scientific computing within grid infrastructures since 2012.
  %This work focuses on processing of medical information should give enhanced information, which can be analysed easily. Thus further analysis or synthesis of such information is beyond this work, so the aim is not to give particular results on some specific diseasies, pathologies etc., however, with cooperation of other experts it is a desired side effect.
 

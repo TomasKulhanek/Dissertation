@@ -4,21 +4,35 @@
 
   \item [{BOINC}]\begingroup Berkeley Open Infrastructure for Network Computing\nomeqref {1.0}
 		\nompageref{7}
+  \item [{DICOM}]\begingroup Digital Imaging and Communication Protocol\nomeqref {3.0}
+		\nompageref{10}
   \item [{EGI}]\begingroup European Grid Infrastructure\nomeqref {1.0}
 		\nompageref{7}
+  \item [{FLOPS}]\begingroup Floating-Point Operations per Second\nomeqref {1.0}
+		\nompageref{8}
   \item [{FMI}]\begingroup Functional Mockup Interface\nomeqref {3.0}
-		\nompageref{12}
+		\nompageref{14}
   \item [{FMU}]\begingroup Functional Mockup Unit\nomeqref {3.0}
-		\nompageref{12}
+		\nompageref{14}
+  \item [{HPC}]\begingroup High Performance Computing\nomeqref {1.0}
+		\nompageref{8}
+  \item [{HTC}]\begingroup High Throughput Computing\nomeqref {1.0}
+		\nompageref{8}
   \item [{IaaS}]\begingroup Infrastructure as a Service\nomeqref {1.0}
+		\nompageref{8}
+  \item [{MTC}]\begingroup Many Task Computing\nomeqref {1.0}
 		\nompageref{8}
   \item [{NGI}]\begingroup National Grid Initiative\nomeqref {1.0}
 		\nompageref{7}
-  \item [{RDP}]\begingroup Remote Desktop Protocol\nomeqref {3.0}
+  \item [{NP-complete}]\begingroup Nondeterministig Polynomial - complete\nomeqref {3.0}
 		\nompageref{10}
+  \item [{PACS}]\begingroup Picture Archiving and Communication System\nomeqref {3.0}
+		\nompageref{11}
+  \item [{RDP}]\begingroup Remote Desktop Protocol\nomeqref {3.0}
+		\nompageref{11}
   \item [{WLCG}]\begingroup Worldwide Large Hadron Collider Computing Grid\nomeqref {1.0}
 		\nompageref{7}
   \item [{XML}]\begingroup Extensible Markup Language\nomeqref {3.0}
-		\nompageref{12}
+		\nompageref{14}
 
 \end{thenomenclature}

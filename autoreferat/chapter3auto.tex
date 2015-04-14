@@ -1,12 +1,12 @@
 \chapter{Methods}
 
 From a computer science (informatics) point of view, it is assumed that the processing of medical information is, in general, a computational problem, which is understood as a task that can be solved by a computer. An algorithm is a set of operations that is used to accomplish tasks and solve problems. 
-The important features of an algorithm are effectivity (what is the time complexity of the algorithm regarding the size of input data) and scalability (how far can an algorithm benefit from parallel computing). Grid computing and cloud computing brings a technology that enables parallel computing in a large amount of shared computers, servers or cluster of servers introduces large speedup of computation and can decrease the time of computation substantially. However, problems solvable by algorithms with exponential time complexity (e.g. NP-hard or NP-complete) can't be addressed by any large scale infrastructure \cite{Garey1979}. Therefore, additional non-exact methods for such type of problems are used to obtain at least some solution including heuristic method (eliminate some steps or solution classes that seems to not go to optimal solution), randomization (pseudo random values are generated and statistical methods can be used to compute expected optimal value) and others. 
+The important features of an algorithm are effectivity (what is the time complexity of the algorithm regarding the size of input data) and scalability (how far can an algorithm benefit from parallel computing). Grid computing and cloud computing brings a technology that enables parallel computing in a large amount of shared computers, servers or cluster of servers introduces large speedup of computation and can decrease the time of computation substantially. However, problems solvable by algorithms with exponential time complexity (e.g. NP-hard or NP-complete\nomenclature{NP-complete}{Nondeterministig Polynomial - complete}) can't be addressed by any large scale infrastructure \cite{Garey1979}. Therefore, additional non-exact methods for such type of problems are used to obtain at least some solution including heuristic method (eliminate some steps or solution classes that seems to not go to optimal solution), randomization (pseudo random values are generated and statistical methods can be used to compute expected optimal value) and others. 
 
 \section{Sharing Medical Images}
-The DICOM standard was used as a joint protocol to integrate grid-based system Globus MEDICUS \cite{Erberich2006} with current production system MEDIMED for sharing medical images among different hospitals \cite{Slavicek2010}, which is based on common distributed system with central cluster. 
+The DICOM standard\footnote{DICOM: \url{http://dicom.nema.org/} accessed January 2015}\nomenclature{DICOM}{Digital Imaging and Communication Protocol} was used as a joint protocol to integrate grid-based system Globus MEDICUS \cite{Erberich2006} with current production system MEDIMED for sharing medical images among different hospitals \cite{Slavicek2010}, which is based on common distributed system with central cluster. 
 % which may suffer with single point of failure and bottleneck issues. 
-Globus MEDICUS \cite{Erberich2006,Erberich2007} implements a DICOM Grid Interface Service (DGIS) and integrates the open-source PixelMed\texttrademark ~Java DICOM Toolkit\footnote{\url{http://www.pixelmed.com/} accessed February 2015} into a web service, communicating via the DICOM protocol. Furthermore, it forwards queries to the underlying services within Globus toolkit. The console application of the MEDIMED project can be interconnected via DICOM protocol with local PACS system and selected DICOM studies can be sent/retrieved to another institution connected to the MEDIMED project.
+Globus MEDICUS \cite{Erberich2006,Erberich2007} implements a DICOM Grid Interface Service (DGIS) and integrates the open-source PixelMed\texttrademark ~Java DICOM Toolkit\footnote{\url{http://www.pixelmed.com/} accessed February 2015} into a web service, communicating via the DICOM protocol. Furthermore, it forwards queries to the underlying services within Globus toolkit. The console application of the MEDIMED project can be interconnected via DICOM protocol with local Picture Archiving and Communication System (PACS)\nomenclature{PACS}{Picture Archiving and Communication System} and selected DICOM studies can be sent/retrieved to another institution connected to the MEDIMED project.
 
 
 
@@ -53,7 +53,7 @@ Globus MEDICUS \cite{Erberich2006,Erberich2007} implements a DICOM Grid Interfac
 \section{Voice Science}
 \label{sec:voice}
 
-The software for parameterized Voice Range Profile (ParVRP) and Voice Range Profile in Real time (RealVoiceLab) was already developed and calibrated for selected types of microphones in an MS Windows platform by Fric et al. \cite{Fric2007,Fric2012}. Its implementation is carried out in an MATLAB environment, utilizing Signal Processing Toolbox\footnote{\url{http://www.mathworks.com/products/signal/} accessed February 2015}. It is compiled with a MATLAB Compiler and distributed as an executable. To migrate this legacy application into distributed environment, the virtualization can be used with a protocol to control an application remotely. Remote Desktop Protocol (RDP)\nomenclature{RDP}{Remote Desktop Protocol} is a proprietary protocol that is used for desktop sharing. It was primarily developed in a Microsoft Windows platform, however, today, clients and servers exist for several other platforms. RDP itself contains the redirection of several services, e.g., audio, sound recording, drive access. 
+The software for parameterized Voice Range Profile (ParVRP) and Voice Range Profile in Real time (RealVoiceLab) was already developed and calibrated for selected types of microphones in an MS Windows platform by Fric et al. \cite{Fric2007,Fric2012}. Its implementation is carried out in an MATLAB environment, utilizing Signal Processing Toolbox\footnote{\url{http://www.mathworks.com/products/signal/} accessed February 2015}. It is compiled with a MATLAB Compiler and distributed as an executable. To migrate this legacy application into distributed environment, the virtualization can be used with a protocol to control an application remotely. Remote Desktop Protocol (RDP)\nomenclature{RDP}{Remote Desktop Protocol} is a proprietary protocol that is used for desktop sharing. It was primarily developed in a Microsoft Windows platform, however, today, clients and servers exist for several other platforms. RDP itself contains the redirection of several services, e.g., audio, sound recording, drive access, etc. 
 
 %With the introduction of objective data analysis and laryngoscopy methods, voice science emphasized the cooperation among laryngologists, speech pathologists and voice teachers.
 %The normal human voice ranges from 50 Hz to about 1~000 Hz and there are some  individual variations. For the analysis of a digitally recorded voice, either habitual or singing, the Discrete Fourier Transformation (DFT)\nomenclature{DFT}{Discrete Fourier Transformation} is used to produce a frequency and amplitude analysis of the recorded input voice samples. One of the most used class algorithm to compute DFT is the class of Fast Fourier Transformation (FFT)\nomenclature{FFT}{Fast Fourier Transformation} with computational complexity $O(n \log(n))$ \cite{Cooley1965,Frigo2005}.
@@ -93,9 +93,49 @@ A mathematical formalization of the fundamental knowledge and relation among a b
     \label{fig:modeling}
 \end{figure}
 
-There are used several technologies in order to implement a formalized model of physiology. Within the work of this thesis a Modelica language was choosen, because it was identified as robust to maintain most complex models of human physiology in understandable way \cite{Kofranek2011hummod}.
+There are used several technologies in order to implement a formalized model of physiology. Within the work of this thesis a Modelica language was choosen, because it was identified as robust to maintain most complex models of human physiology in understandable way \cite{Kofranek2011hummod}. Additionally, a library Physiolibrary developed by Matejak et al. (21.) %\cite{Matejak2014} 
+was enhanced and used especially within the hydraulic domain components as listed in Table \ref{table:physiolibrary}. 
 
-Usually, some knowledge of the system - the structure - is available and unknown coefficients (parameters) remain unknown. Once the model is formalized and constructed, a further problem is to estimate the model parameters so that the model reproduces a real world system. Without any further knowledge about the model, the problem of parameter estimation (or system identification) was shown to belong to the \emph{NP-complete} problems \cite{Hofmann2005}, which implies that the best known exact algorithm solving this problem has exponential time complexity. The heuristic methods (evolution strategies), randomization methods (Monte-Carlo method) and others are commonly used in order to find at least some parameter estimation in a reasonable time. Therefore, in further  work of this thesis an evolution strategy, genetic algorithm, was choosen as most robust for common models and system was proposed and implemented, which integrates this algorithm implemented in MATLAB environment and model simulation implemented in Modelica language.
+\begin{table}[!ht]
+\small
+\centering
+\begin{tabular}{m{1.0cm} m{10.2cm}}
+%\begin{tabular}{m{1.2cm} m{13.5cm}}
+\hline
+Icon & Description \\
+\hline
+%\begin{tabular}{m{1.5cm} m{12.7cm}}
+\includegraphics[scale=0.8]{HydraulicPorts.png} & Acausal hydraulic connectors -- the MODELICA tool generates "Kirchhoff law" analogy for all non-flow variables $p_1 .. p_n$ (pressure) and "flow" variable $q1..q_n$ (flowrate):\\
+ & $ \label{eq:con1} p_1 = p_2 =... = p_n$ \\
+ & $ \label{eq:con2} \sum_{i=1}^{n} q_i = 0$  \\
+\hline
+\includegraphics[scale=0.4]{resistance.png} & Hydraulic Resistor--characterized by $G$--conductance parameter (reciprocal value of resistance $G = 1/R$) and defined by relation among quantities from both hydraulic connectors, $q$--flowrate and $(p_{out} - p_{in})$ --pressure gradient:\\ 
+ & $ \label{eq:resistor} q = G *(p_{out} - p_{in}) $ \\ \hline
+\includegraphics[scale=0.4]{elasticity.png} & Elastic compartment--characterized by parameters: $C$--compliance (reciprocal value of elastance $C=1/E$), $V_0$--unstressed volume, $p_0$--external pressure. The relation among $p$--pressure, $V$--volume and $q$--flowrate are:\\ 
+& $ \label{eq:compliance}p-p_0 = \left\{   
+  \begin{array}{l l} 0 & \quad \text{if } V \text{\textless} V_0 \\ 
+    \frac{V-V_0}{C} & \quad \text{otherwise}
+  \end{array} \right.$ \\
+ & $ \label{eq:flowrate}\frac{{\rm d}V}{{\rm d}t} =  q$ \\ 
+ \hline
+\includegraphics[scale=0.5]{valve.png} & Valve is characterized by $g_on$ -- inflow, $g_off$ -- backflow conductance and $P_{knee}$ forward threshold pressure. The relation for $dp$ pressure gradient and $q$ flowrate between the two connectors are:\\
+ & $dp = \left\{ \begin{array}{lr} pass/g_{on} +P_{knee} & \text{for } pass >0 \\
+   pass + P_{knee} & \text{otherwise} \end{array} \right. $ \\
+% & $dp = \left\{ \begin{array}{1 1} pass/g_{on} +P_{knee} & \text{for } pass >0 \\
+%   pass + P_{knee} & \text{otherwise} \end{array} \right. $ \\
+ & $q = \left\{ \begin{array}{lr} pass + P_{knee} & \text{for } pass > 0 \\
+     pass \times g_{off} +P_{knee} \times g_{off} & \text{otherwise } \end{array} \right. $ \\  
+\hline
+\includegraphics[scale=0.2]{inertia.png} & Inertia element is characterized by the $I$--intertance parameter and the relationship between pressure and solution flow of the two connectors:\\
+ & $ q_{out}=-q_{in} $ \\
+ & $ \frac{{\rm d}q_{in}}{{\rm d}t} = \frac{p_{in}-p_{out}}{I} $ \\
+\hline
+ \end{tabular}
+ \caption{Icon and description of hydraulic components of Physiolibrary (21.). These are used, e.g., in order to model cardiovascular system.}
+ \label{table:physiolibrary}
+\end{table}
+
+Once the model is formalized and constructed, a further problem is to estimate the model parameters so that the model reproduces a real world system. Without any further knowledge about the model, the problem of parameter estimation (or system identification) was shown to belong to the \emph{NP-complete} problems \cite{Hofmann2005}, which implies that the best known exact algorithm solving this problem has exponential time complexity. The heuristic methods (evolution strategies), randomization methods (Monte-Carlo method) and others are commonly used in order to find at least some parameter estimation in a reasonable time. Therefore, in further  work of this thesis an evolution strategy, genetic algorithm, was choosen as most robust for common models and system was proposed and implemented, which integrates this algorithm implemented in MATLAB environment and model simulation implemented in Modelica language.
 
 The specific model of a studied system that is implemented in Modelica can be simulated in some Modelica tool. Or can be exported into a standard Functional Mockup Unit (FMU)\nomenclature{FMU}{Functional Mockup Unit}. Functional Mockup Interface (FMI)\nomenclature{FMI}{Functional Mockup Interface} defines FMU as a standardized XML\nomenclature{XML}{Extensible Markup Language} metadata description, packaged together with a binary library .DLL (or .SO), following a standardized API, published by Blochwitz et al. \cite{Blochwitza}\footnote{\url{https://www.fmi-standard.org/} accessed February 2015}. This API can be used to get/set values of model variables and to simulate the model.
 

@@ -1,7 +1,7 @@
 %% Verze pro oboustranny tisk:
 % Okraje: 
 % (ale pozor, LaTeX si prida 1in)
-\documentclass[10pt,a5paper,oneside]{book}
+\documentclass[10pt,a5paper,oneside]{extbook}
 \usepackage[english,czech]{babel}
 \usepackage[a5paper,margin=10mm]{geometry}
 \newgeometry{top=20mm,bottom=20mm,right=15mm,left=15mm}
@@ -10,11 +10,13 @@
 
 \usepackage[utf8]{inputenc}
 
-\usepackage[backend=bibtex, style=trad-unsrt]{biblatex}
+\usepackage[backend=bibtex, style=numeric, sorting=none]{biblatex}
 \bibliography{DizertaceAutoreferat}
 
 \DeclareBibliographyCategory{fullcited}
 \newcommand{\mybibexclude}[1]{ \addtocategory{fullcited}{#1} }
+\DeclareCaseLangs{USenglish}%  american,british,canadian,english,australian,newzealand,USenglish,UKenglish}
+%\DeclareFieldFormat{titlecase}{\MakeSentenceCase{#1}}
 
 \usepackage{url}
 \usepackage[nottoc]{tocbibind}
@@ -43,6 +45,10 @@
 %\usepackage[version=3]{mhchem} % for writing chemical compounds and reaction
 %\usepackage{siunitx} % formating numbers
 %\renewcommand{\ttdefault}{pcr} % nicer font - courier in listing
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{arydshln}
+\usepackage{siunitx} % formating numbers
 
 \usepackage[unicode,colorlinks]{hyperref}   % Musi byt za vsemi ostatnimi balicky
 \hypersetup{pdftitle={Utilization of GRID in processing of medical information},
@@ -102,6 +108,7 @@
 \selectlanguage{english}
 \begingroup
 \let\clearpage\relax
+%\singlespacing
 
 \include{chapter1auto} %intro
 \include{chapter2auto} %hypothesis
@@ -113,7 +120,9 @@
 
 \include{chapter6auto} %conclusion
 
-\printbibliography[notcategory=fullcited, heading=bibintoc]
 
+\printbibliography[notcategory=fullcited, heading=bibintoc]
+\singlespacing
+\small
 \include{publicauto}
 \end{document}

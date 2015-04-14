@@ -87,13 +87,13 @@ The speedup was measured on 10 CPUs till 60 CPUs and compared in order to predic
 
 \begin{table}[htb]
 \footnotesize
-\begin{tabular}{|l|r|r|r|}
+\begin{tabular}{|l|r|r|r|r|r|}
 \hline
-complexity & name & S(80) & S(160)\\
+complexity & name & $T_1(80)_{[s]}$ & $S(80)$ & $T_1(160)_{[s]}$ & $S(160)$\\
 \hline
-high & HumMod \cite{Kofranek2011hummod} & $\num{63.9807249802}$ & $\num{121.5389821285}$ \\
-medium & Meurs2011\cite{Meurs2011} & $\num{55.9311360464}$ & $\num{53.0128125}$ \\
-low & Matejak2014\cite{Matejak2014sj} & $\num{16.6865881526}$ & $\num{12.5500720509}$\\ \hline
+high & HumMod \cite{Kofranek2011hummod} & $\num{544.539}$ & $\num{63.9807249802}$ & $\num{286.657}$ & $\num{121.5389821285}$ \\
+medium & Meurs2011\cite{Meurs2011} & $\num{90.991}$ & $\num{55.9311360464}$ & $\num{96.000}$ & $\num{53.0128125}$ \\
+low & Matejak2014\cite{Matejak2014sj} & $\num{11.378}$ & $\num{16.6865881526}$ & $\num{15.128}$ & $\num{12.5500720509}$\\ \hline
 \end{tabular}
 \caption{Scalability on 80 CPUs and 160 CPUs of parameter estimation on cloud computing cluster on 5-10 virtual machines, each 16 CPUs on physical hardware 2x 8-core Intel E5-2670 2.6GHz. Genetic algorithm configured with a population $640$ individuals for $20$ generations, which increases about 10 times more simulation performed compared to previous tables. Speedup estimated from measuring the computation when using 1 CPU.}
 \label{table:speedupresult3}
@@ -106,7 +106,8 @@ low & Matejak2014\cite{Matejak2014sj} & $\num{16.6865881526}$ & $\num{12.5500720
     \label{fig:amdahlres}
 \end{figure}
 
-To summarize the results, the simple models scale up to the 20 processors with speedup of 15. The medium scales up to 80 processors with a speedup of about 56 and complex models scale up to 160 processors with a speedup near 120. Practically, after 200 generations, a good approximation was obtained, which implicates that the computation time could be reduced from four days to 47 minutes in the case of HumMod and from 17 hours to 18 minutes, in the case of the medium complex model.
+To summarize the results from Table \ref{table:speedupresult3} and Figure \ref{fig:amdahlres}, the low complex model scales up to 40 CPUs with a speedup of 15 (compare to theoretical serial speedup of 11, if eliminating network overhead,  Table \ref{table:overhead}). The medium complex model scales up to 80 CPUs with a speedup of 56 and complex model scales up to 160 CPUs (and probably more) with a speedup of 122. Practically, good parameter estimation was obtained after 200 generations with population of 640, which implicates that the computation time can be reduced from four days to 47 minutes in the case of complex model and from 14 hours to 15 minutes in the case of medium complex model.
+%40 proc 15, 80 proc 56, 160 proc 121,our dYA TO47 from 17 hours to 18minnutes
 
 The deployment on local cluster reduces the communication overhead. However, in order to compute concurrently, it is limited by available processors. Thus, computing on local cluster should be considered for boundary cases like the simple models. The following statement can be made:
 \begin{itemize}
